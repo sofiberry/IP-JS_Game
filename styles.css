@@ -1,0 +1,264 @@
+/* todo advanced styling */
+
+/*
+   * Advanced
+   ? Animated CSS button
+   * superStrange
+ */
+
+:root {
+   /* 
+      *declaring css gradient variables in the root
+   */
+   --body-color: linear-gradient(170deg, rgba(49, 57, 73, 0.8) 20%, rgba(49, 57, 73, 0.5) 20%, rgba(49, 57, 73, 0.5) 35%, rgba(41, 48, 61, 0.6) 35%, rgba(41, 48, 61, 0.8) 45%, rgba(31, 36, 46, 0.5) 45%, rgba(31, 36, 46, 0.8) 75%, rgba(49, 57, 73, 0.5) 75%),
+      linear-gradient(45deg, rgba(20, 24, 31, 0.8) 0%, rgba(41, 48, 61, 0.8) 50%, rgba(82, 95, 122, 0.8) 50%, rgba(133, 146, 173, 0.8) 100%) #313949;
+
+   --new-game-popup-color: linear-gradient(160deg, rgba(79, 103, 110, 0.8) 20%, rgba(79, 103, 110, 0.5) 20%, rgba(79, 103, 110, 0.5) 35%, rgba(162, 196, 235, 0.6) 35%, rgba(83, 91, 101, 0.8) 45%, rgba(53, 61, 69, 0.5) 45%, rgba(85, 114, 143, 0.8) 75%, rgba(61, 70, 77, 0.5) 75%), linear-gradient(45deg, rgba(174, 206, 243, 0.9) 0%, rgba(54, 94, 108, 0.99) 50%, rgba(72, 95, 122, 0.99) 50%, rgba(169, 177, 197, 0.99) 100%) #4d5360;
+
+   --canvas-border: linear-gradient(to top right, rgb(63, 144, 206), rgb(164, 177, 102), rgb(190, 55, 2));
+
+   --container-shadowing: 1em -2.2em 4.4em rgba(0, 0, 0, 0.25),
+      1em -2.2em 4.4em rgba(0, 0, 0, 0.5);
+   --popup-shadowing: 1em -2.2em 4.4em rgba(72, 143, 219, 0.25);
+}
+* {
+   padding: 0;
+   margin: 0;
+   font-family: "Poppins", sans-serif;
+}
+
+html {
+   height: 100%;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+}
+
+body {
+   min-height: 100%;
+   position: relative;
+   padding-bottom: 3rem;
+   margin: 0;
+   padding: 0;
+   text-align: center;
+   width: 100%;
+   background: var(--body-color);
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.container {
+   font-size: 16px;
+   background-color: transparent;
+   width: 90vw;
+   max-width: 34em;
+   position: absolute;
+   transform: translate(-50%, -50%);
+   top: 50%;
+   left: 50%;
+   padding: 3em;
+   border-radius: 0.6em;
+   box-shadow: var(--container-shadowing);
+}
+
+#options-container {
+   text-align: center;
+}
+
+#options-container div {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   margin: 1.2em 0 2.4em 0;
+}
+
+#options-container button {
+      background: linear-gradient(-30deg, rgb(66, 88, 112, 0.7) 50%, rgb(29, 76, 101, 0.5) 50%);
+      padding: 16px 10px;
+      margin: 0px;
+      display: inline-block;
+      -webkit-transform: translate(0%, 0%);
+      transform: translate(0%, 0%);
+      overflow: hidden;
+      color: #d4e0f7;
+      font-size: 20px;
+      letter-spacing: 2.5px;
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      outline: none;
+      -webkit-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 20px 50px rgba(44, 58, 75, 0.5),
+      0 25px 60px rgba(29, 35, 55, 0.5),
+      0 30px 70px rgba(38, 44, 53, 0.5);
+}
+
+#options-container button::before {
+      content: '';
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      background-color: #8592ad;
+      opacity: 0;
+      -webkit-transition: .2s opacity ease-in-out;
+      transition: .2s opacity ease-in-out;
+   }
+
+   #options-container button:hover::before {
+         opacity: 0.2;
+      }
+
+#options-container button:disabled {
+   border: 3px solid #ab604c;
+   color: #808080;
+   opacity: 0.7;
+}
+
+#options-container button.active {
+   background-color: linear-gradient(to top, right, #0979a1, #0cf);
+   border: 3px solid #566d7b;
+   color: #fff;
+}
+
+#options-container h3 {
+   font-family: 'Rouge Script', cursive;
+   font-size: 3rem;
+   font-weight: 600;
+   color: white;
+}
+
+.letter-container {
+   width: 100%;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 0.6em;
+}
+
+#letter-container button {
+   height: 2.4em;
+   width: 2.4em;
+   border-radius: 0.3em;
+   background-color: #8a9eb7;
+   color: #fff;
+   font-weight: 600;
+   border: none;
+   outline: none;
+}
+
+#letter-container button:disabled {
+   background-color: #3c4b59;
+}
+
+#letter-container button.active {
+   background-color: #1a2129;
+}
+
+.new-game-popup {
+   position: absolute;
+   left: 0;
+   top: 25%;
+   height: 60%;
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   border-radius: 0.6em;
+   z-index: 100;
+   background: var(--new-game-popup-color);
+   box-shadow: var(--popup-shadowing);
+}
+
+#user-input-section {
+   display: flex;
+   justify-content: center;
+   font-size: 1.8em;
+   margin: 0.6em 0 1.2em 0;
+   color: #fff;
+}
+
+canvas {
+   display: block;
+   margin: auto;
+   border: solid 8px transparent;
+   border-image: var(--canvas-border);
+   border-image-slice: 1;
+}
+
+.hide {
+   display: none;
+}
+
+#result-text h2 {
+   font-size: 1.8em;
+   text-align: center;
+}
+
+#result-text p {
+   font-size: 1.25em;
+   margin: 1em 0 2em 0;
+   color: #FFF;
+}
+
+#result-text span {
+   font-weight: 600;
+}
+
+#new-game-button {
+   font-size: 1.25em;
+   background-color: transparent !important;
+   border: none;
+   outline: none;
+}
+   .win-msg {
+      font-size: 7rem;
+      color: #00ffa6;
+      text-shadow: 2px 1px 3px #042a0a;
+   }
+   .lose-msg {
+      color: #8f0000;
+      text-shadow: 2px 1px 3px #3d0b0b;
+   }
+
+.animated-button1 {
+   background: linear-gradient(-30deg, #3d0b0b 50%, #2b0808 50%);
+   padding: 20px 40px;
+   margin: 12px;
+   display: inline-block;
+   -webkit-transform: translate(0%, 0%);
+   transform: translate(0%, 0%);
+   overflow: hidden;
+   color: #f7d4d4;
+   font-size: 20px;
+   letter-spacing: 2.5px;
+   text-align: center;
+   text-transform: uppercase;
+   text-decoration: none;
+   -webkit-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.animated-button1::before {
+   content: '';
+   position: absolute;
+   top: 0px;
+   left: 0px;
+   width: 100%;
+   height: 100%;
+   background-color: #ad8585;
+   opacity: 0;
+   -webkit-transition: .2s opacity ease-in-out;
+   transition: .2s opacity ease-in-out;
+}
+
+.animated-button1:hover::before {
+   opacity: 0.2;
+}
+
+
+/* 
+   todo END OF PAGE STYLING UI
+      * # BY S4Y Group Members
+*/
