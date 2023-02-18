@@ -89,7 +89,7 @@ const initializer = () => {
   winCount = 0;
   count = 0;
 
-  //Initially erase all content and hide letteres and new game button
+  //Initially erase all content and hide letters and new game button
   userInputSection.innerHTML = "";
   optionsContainer.innerHTML = "";
   letterContainer.classList.add("hide");
@@ -165,6 +165,7 @@ const canvasCreator = () => {
 
   const head = () => {
     context.beginPath();
+    //path should be beginning with head path;
 
     //context.arc(x-pos, y-pos, radius, startAngle, endAngle, false for anti-clockwise / true for clockwise direction)
 
